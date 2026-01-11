@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0f0202] text-white;
+  }
+}
+
+.glowing-bg {
+  background: radial-gradient(circle at center, rgba(193, 39, 45, 0.15) 0%, transparent 70%);
+}
+
+.gold-text-glow {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.red-border-glow {
+  box-shadow: 0 0 20px rgba(193, 39, 45, 0.3);
+}
