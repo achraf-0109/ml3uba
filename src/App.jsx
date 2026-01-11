@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Trophy, Calendar, Clock, MapPin, ChevronRight, Info, Camera, Scan, CheckCircle, Ticket, X, History, Map, AlertCircle, Loader2, ShoppingCart, TrendingUp, Share2, Shirt, Upload } from 'lucide-react'
+import { Trophy, Calendar, Clock, MapPin, ChevronRight, Info, Camera, Scan, CheckCircle, Ticket, X, History, Map, AlertCircle, Loader2, ShoppingCart, TrendingUp, Share2, Shirt, Upload, BellRing } from 'lucide-react'
 import { QRCodeSVG } from 'qrcode.react';
 // Dynamic import for face-api from CDN to ensure speed and bypass environment limitations
 const FACE_API_URL = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.esm.js';
@@ -100,18 +100,18 @@ const JerseyAiModal = ({ onClose }) => {
             <motion.div
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
-                className="w-full max-w-xl bg-[#1a0000] border border-morocco-gold/30 rounded-[2.5rem] p-8 relative overflow-hidden shadow-glow-gold"
+                className="w-full max-w-xl bg-[#1a0000] border border-morocco-gold/30 rounded-t-[2rem] md:rounded-[2.5rem] p-6 md:p-8 relative overflow-hidden shadow-glow-gold"
             >
                 <button onClick={onClose} className="absolute top-6 right-6 z-50 text-white/50 hover:text-white bg-black/20 p-2 rounded-full backdrop-blur-md">
                     <X size={20} />
                 </button>
 
-                <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-morocco-gold rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow-gold">
+                <div className="text-center mb-6 md:mb-8">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-morocco-gold rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow-gold">
                         <Shirt className="text-black" size={32} />
                     </div>
-                    <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-2">Jersey AI</h2>
-                    <p className="text-zinc-500 font-bold uppercase tracking-widest text-xs">Wear the Colors of Glory</p>
+                    <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-2">Jersey AI</h2>
+                    <p className="text-zinc-500 font-bold uppercase tracking-widest text-[10px] md:text-xs">Wear the Colors of Glory</p>
                 </div>
 
                 {step === 'input' && (
@@ -270,42 +270,42 @@ const P2PMarketModal = ({ tickets, matches, onClose, onBuy, currentUser, userTic
             <motion.div
                 initial={{ scale: 0.9, y: 30 }}
                 animate={{ scale: 1, y: 0 }}
-                className="w-full max-w-6xl h-[85vh] bg-[#1a0202] border border-morocco-gold/20 rounded-[3rem] flex flex-col overflow-hidden shadow-2xl relative"
+                className="w-full max-w-6xl h-[95vh] md:h-[85vh] bg-[#1a0202] border border-morocco-gold/20 rounded-t-[2.5rem] md:rounded-[3rem] flex flex-col overflow-hidden shadow-2xl relative"
             >
                 <div className="absolute top-0 right-0 w-96 h-96 bg-morocco-gold/5 rounded-full blur-[100px] -mr-48 -mt-48" />
 
-                <button onClick={onClose} className="absolute top-10 right-10 z-50 text-zinc-500 hover:text-white bg-black/50 p-3 rounded-full">
+                <button onClick={onClose} className="absolute top-6 right-6 md:top-10 md:right-10 z-50 text-zinc-500 hover:text-white bg-black/50 p-2 md:p-3 rounded-full">
                     <X size={24} />
                 </button>
 
-                <div className="p-12 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
-                    <div className="flex items-center gap-6">
-                        <div className="w-16 h-16 bg-gradient-to-br from-morocco-gold to-[#4a3500] rounded-2xl flex items-center justify-center shadow-glow-gold">
+                <div className="p-6 md:p-12 md:pb-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8">
+                    <div className="flex items-center gap-4 md:gap-6">
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-morocco-gold to-[#4a3500] rounded-2xl flex items-center justify-center shadow-glow-gold">
                             <ShoppingCart className="text-black" size={32} />
                         </div>
                         <div>
-                            <h2 className="text-4xl font-black tracking-tighter uppercase">P2P <span className="text-morocco-gold italic">Market</span></h2>
-                            <p className="text-zinc-500 text-[10px] uppercase tracking-[0.4em] font-bold">The Kingdom's Official Exchange</p>
+                            <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase">P2P <span className="text-morocco-gold italic">Market</span></h2>
+                            <p className="text-zinc-500 text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold">Official Exchange</p>
                         </div>
                     </div>
 
-                    <div className="flex bg-white/5 p-1 rounded-2xl border border-white/10">
+                    <div className="flex bg-white/5 p-1 rounded-2xl border border-white/10 w-full lg:w-auto overflow-x-auto">
                         <button
                             onClick={() => setActiveTab('buy')}
-                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2 ${activeTab === 'buy' ? 'bg-morocco-gold text-black shadow-lg' : 'text-zinc-400 hover:text-white'}`}
+                            className={`flex-1 lg:flex-none px-4 md:px-8 py-2 md:py-3 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${activeTab === 'buy' ? 'bg-morocco-gold text-black shadow-lg' : 'text-zinc-400 hover:text-white'}`}
                         >
-                            <ShoppingCart size={14} /> Buy Tickets
+                            <ShoppingCart size={14} /> Buy
                         </button>
                         <button
                             onClick={() => setActiveTab('sell')}
-                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all flex items-center gap-2 ${activeTab === 'sell' ? 'bg-morocco-red text-white shadow-lg' : 'text-zinc-400 hover:text-white'}`}
+                            className={`flex-1 lg:flex-none px-4 md:px-8 py-2 md:py-3 rounded-xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 ${activeTab === 'sell' ? 'bg-morocco-red text-white shadow-lg' : 'text-zinc-400 hover:text-white'}`}
                         >
-                            <TrendingUp size={14} /> Sell My Tickets
+                            <TrendingUp size={14} /> Sell
                         </button>
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto px-12 pb-12 scrollbar-hide">
+                <div className="flex-1 overflow-y-auto px-6 md:px-12 pb-12 scrollbar-hide">
                     {activeTab === 'buy' ? (
                         <>
                             {tickets.length === 0 ? (
@@ -319,12 +319,38 @@ const P2PMarketModal = ({ tickets, matches, onClose, onBuy, currentUser, userTic
                             ) : (
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                     {tickets.filter(t => t.sellerId !== currentUser?.phone).map((t, i) => {
-                                        const match = matches.find(m => m.id === t.matchId)
-                                        const commission = t.type === 'VIP' ? 0.10 : 0.05
-                                        const total = Math.round(t.price * (1 + commission))
+                                        // Robust Match Lookup
+                                        let match = matches.find(m => m.id === t.matchId);
+                                        if (!match && t.ticketData) {
+                                            match = matches.find(m => m.home === t.ticketData.home && m.away === t.ticketData.away);
+                                        }
+                                        // Safe Data Merge
+                                        const rawData = match || t.ticketData || {};
+                                        // Ensure defaults are solid
+                                        const defaultDate = new Date().toISOString();
+                                        const displayMatch = {
+                                            ...rawData, // Spread first
+                                            home: rawData.home || 'Unknown Team',
+                                            away: rawData.away || 'Unknown Team',
+                                            isoDate: rawData.isoDate || defaultDate,
+                                            homeFlag: rawData.homeFlag || '',
+                                            awayFlag: rawData.awayFlag || '',
+                                            round: rawData.round || ''
+                                        };
 
-                                        const isExpired = new Date(match.isoDate).getTime() < new Date().getTime()
-                                        const isLocked = new Date(match.isoDate).getTime() - new Date().getTime() < 24 * 60 * 60 * 1000
+                                        // Double check date validity
+                                        if (isNaN(new Date(displayMatch.isoDate).getTime())) {
+                                            displayMatch.isoDate = defaultDate;
+                                        }
+
+                                        const commission = t.type === 'VIP' ? 0.10 : 0.05
+                                        // Ensure price is a number
+                                        const safePrice = Number(t.price) || 0;
+                                        const total = Math.round(safePrice * (1 + commission))
+
+                                        const matchTime = new Date(displayMatch.isoDate).getTime();
+                                        const isExpired = matchTime < new Date().getTime()
+                                        const isLocked = matchTime - new Date().getTime() < 24 * 60 * 60 * 1000
 
                                         return (
                                             <motion.div
@@ -346,18 +372,18 @@ const P2PMarketModal = ({ tickets, matches, onClose, onBuy, currentUser, userTic
 
                                                 <div className="flex items-center gap-4 mb-6">
                                                     <div className="flex -space-x-2">
-                                                        <img src={match.homeFlag} className="w-8 h-8 rounded-full border-2 border-[#1a0202] z-10" />
-                                                        <img src={match.awayFlag} className="w-8 h-8 rounded-full border-2 border-[#1a0202]" />
+                                                        <img src={displayMatch.homeFlag} className="w-8 h-8 rounded-full border-2 border-[#1a0202] z-10" />
+                                                        <img src={displayMatch.awayFlag} className="w-8 h-8 rounded-full border-2 border-[#1a0202]" />
                                                     </div>
                                                     <div>
-                                                        <div className="text-[10px] font-bold text-zinc-500 uppercase">{match.round}</div>
-                                                        <div className="font-black text-sm">{match.home} vs {match.away}</div>
+                                                        <div className="text-[10px] font-bold text-zinc-500 uppercase">{displayMatch.round}</div>
+                                                        <div className="font-black text-sm">{displayMatch.home} vs {displayMatch.away}</div>
                                                     </div>
                                                 </div>
 
                                                 <div className="bg-black/40 rounded-2xl p-4 flex items-center justify-between mb-6">
                                                     <div className="text-[9px] font-bold text-zinc-500 uppercase">Starts In</div>
-                                                    <CountdownTimer targetDate={match.isoDate} className="text-sm font-black text-white tabular-nums" />
+                                                    <CountdownTimer targetDate={displayMatch.isoDate} className="text-sm font-black text-white tabular-nums" />
                                                 </div>
 
                                                 <button
@@ -389,16 +415,33 @@ const P2PMarketModal = ({ tickets, matches, onClose, onBuy, currentUser, userTic
                                 </div>
                             ) : (
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {userTickets.map((t) => {
-                                        const match = matches.find(m => m.home === t.home && m.away === t.away) || { ...t, homeFlag: '', awayFlag: '' }
-                                        const matchTime = new Date(match.isoDate || t.isoDate).getTime()
+                                    {userTickets.map((t, idx) => {
+                                        // Safety: ensure ticket has required properties
+                                        if (!t) return null;
+
+                                        // Robust Match Lookup
+                                        let match = matches.find(m => m.id === (t.matchId || t.id) || (m.home === t.home && m.away === t.away));
+
+                                        // Safe Data Merge
+                                        const rawData = match || t || {};
+                                        const displayMatch = {
+                                            ...rawData, // Spread first
+                                            home: rawData.home || t.home || 'Unknown Team',
+                                            away: rawData.away || t.away || 'Unknown Team',
+                                            isoDate: rawData.isoDate || t.isoDate || new Date().toISOString(),
+                                            homeFlag: rawData.homeFlag || t.homeFlag || '',
+                                            awayFlag: rawData.awayFlag || t.awayFlag || '',
+                                            round: rawData.round || t.round || 'Match'
+                                        };
+
+                                        const matchTime = new Date(displayMatch.isoDate).getTime()
                                         const isLocked = matchTime - new Date().getTime() < 24 * 60 * 60 * 1000
                                         const originalPrice = t.price || 250
                                         const passType = t.type || 'Normal'
 
                                         return (
                                             <motion.div
-                                                key={t.ticketId}
+                                                key={t.ticketId || t.id || `ticket-${idx}`}
                                                 initial={{ opacity: 0, scale: 0.95 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 className="bg-white/5 border border-white/10 rounded-3xl p-6 relative overflow-hidden group hover:border-morocco-gold/30 transition-all"
@@ -415,18 +458,18 @@ const P2PMarketModal = ({ tickets, matches, onClose, onBuy, currentUser, userTic
 
                                                 <div className="flex items-center gap-4 mb-6">
                                                     <div className="flex -space-x-2">
-                                                        <img src={match.homeFlag} className="w-8 h-8 rounded-full border-2 border-[#1a0202] z-10 bg-zinc-800" />
-                                                        <img src={match.awayFlag} className="w-8 h-8 rounded-full border-2 border-[#1a0202] bg-zinc-800" />
+                                                        <img src={displayMatch.homeFlag || ''} alt="" className="w-8 h-8 rounded-full border-2 border-[#1a0202] z-10 bg-zinc-800" />
+                                                        <img src={displayMatch.awayFlag || ''} alt="" className="w-8 h-8 rounded-full border-2 border-[#1a0202] bg-zinc-800" />
                                                     </div>
                                                     <div>
-                                                        <div className="text-[10px] font-bold text-zinc-500 uppercase">{match.round}</div>
-                                                        <div className="font-black text-sm">{match.home} vs {match.away}</div>
+                                                        <div className="text-[10px] font-bold text-zinc-500 uppercase">{displayMatch.round}</div>
+                                                        <div className="font-black text-sm">{displayMatch.home} vs {displayMatch.away}</div>
                                                     </div>
                                                 </div>
 
                                                 <div className="bg-black/40 rounded-2xl p-4 flex items-center justify-between mb-6">
                                                     <div className="text-[9px] font-bold text-zinc-500 uppercase">Starts In</div>
-                                                    <CountdownTimer targetDate={match.isoDate || t.isoDate} className="text-sm font-black text-white tabular-nums" />
+                                                    <CountdownTimer targetDate={displayMatch.isoDate} className="text-sm font-black text-white tabular-nums" />
                                                 </div>
 
                                                 <div className="mt-auto">
@@ -459,7 +502,27 @@ const P2PMarketModal = ({ tickets, matches, onClose, onBuy, currentUser, userTic
                                     ) : (
                                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                             {tickets.filter(t => t.sellerId === currentUser.phone).map((t, i) => {
-                                                const match = matches.find(m => m.id === t.matchId)
+                                                // Robust Match Lookup
+                                                let match = matches.find(m => m.id === t.matchId);
+                                                if (!match && t.ticketData) {
+                                                    match = matches.find(m => m.home === t.ticketData.home && m.away === t.ticketData.away);
+                                                }
+                                                // Safe Data Merge: Ensure we have defaults for missing properties
+                                                const rawData = match || t.ticketData || {};
+                                                const defaultDate = new Date().toISOString();
+                                                const displayMatch = {
+                                                    ...rawData, // Spread first
+                                                    home: rawData.home || 'Unknown Team',
+                                                    away: rawData.away || 'Unknown Team',
+                                                    isoDate: rawData.isoDate || defaultDate,
+                                                    date: rawData.date || null
+                                                };
+
+                                                // Double check date validity
+                                                if (isNaN(new Date(displayMatch.isoDate).getTime())) {
+                                                    displayMatch.isoDate = defaultDate;
+                                                }
+
                                                 // Simulate only the first listed ticket being "Sold/Claimable" for demo
                                                 const isClaimable = i === 0
 
@@ -472,8 +535,8 @@ const P2PMarketModal = ({ tickets, matches, onClose, onBuy, currentUser, userTic
                                                         </div>
 
                                                         <div className="mb-4 pr-16">
-                                                            <p className="text-[10px] font-bold text-zinc-400 uppercase mb-1">{match.date}</p>
-                                                            <h4 className="font-bold text-white mb-2">{match.home} vs {match.away}</h4>
+                                                            <p className="text-[10px] font-bold text-zinc-400 uppercase mb-1">{displayMatch.date || new Date(displayMatch.isoDate).toLocaleDateString()}</p>
+                                                            <h4 className="font-bold text-white mb-2">{displayMatch.home} vs {displayMatch.away}</h4>
                                                             <div className="text-xs font-black text-morocco-gold">{t.price} MAD</div>
                                                         </div>
 
@@ -1014,10 +1077,10 @@ const TicketModal = ({ match, onClose, onPurchase, existingTickets, faceapi, isM
 
                 {step === 'camera' && (
                     <div className="text-center">
-                        <h3 className="text-2xl font-black text-white mb-2 tracking-tighter uppercase">Royal FaceID</h3>
-                        <p className="text-zinc-500 text-[10px] mb-8 uppercase tracking-[0.3em] font-bold">Secure Kingdom Verification</p>
+                        <h3 className="text-xl md:text-2xl font-black text-white mb-2 tracking-tighter uppercase">Royal FaceID</h3>
+                        <p className="text-zinc-500 text-[8px] md:text-[10px] mb-6 md:mb-8 uppercase tracking-[0.3em] font-bold">Secure Kingdom Verification</p>
 
-                        <div className="relative w-72 h-72 mx-auto rounded-[2.5rem] overflow-hidden border-2 border-morocco-gold/30 shadow-glow-gold mb-8 bg-zinc-900 group">
+                        <div className="relative w-full aspect-square max-w-[280px] md:max-w-[320px] mx-auto rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border-2 border-morocco-gold/30 shadow-glow-gold mb-6 md:mb-8 bg-zinc-900 group">
                             <video
                                 ref={videoRef}
                                 autoPlay
@@ -1144,17 +1207,17 @@ const FullFixturesModal = ({ recent, upcoming, onClose, onBuyTicket }) => {
             <motion.div
                 initial={{ scale: 0.9, y: 30 }}
                 animate={{ scale: 1, y: 0 }}
-                className="w-full max-w-5xl h-[90vh] bg-[#1a0000] border border-morocco-gold/30 rounded-[2.5rem] flex flex-col overflow-hidden shadow-glow-gold relative"
+                className="w-full max-w-5xl h-[95vh] md:h-[90vh] bg-[#1a0000] border border-morocco-gold/30 rounded-t-[2.5rem] md:rounded-[2.5rem] flex flex-col overflow-hidden shadow-glow-gold relative"
             >
-                <button onClick={onClose} className="absolute top-8 right-8 z-50 text-zinc-500 hover:text-white bg-black/40 p-2 rounded-full backdrop-blur-md">
+                <button onClick={onClose} className="absolute top-6 right-6 md:top-8 md:right-8 z-50 text-zinc-500 hover:text-white bg-black/40 p-2 rounded-full backdrop-blur-md">
                     <X size={24} />
                 </button>
 
-                <div className="p-10 pb-6 border-b border-morocco-gold/10">
+                <div className="p-6 md:p-10 md:pb-6 border-b border-morocco-gold/10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <div>
-                            <h2 className="text-4xl font-black tracking-tighter uppercase mb-2">Tournament <span className="text-morocco-gold">Fixtures</span></h2>
-                            <p className="text-zinc-500 text-[10px] uppercase tracking-[0.4em] font-bold">Official Morocco 2025 Schedule</p>
+                            <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase mb-2">Tournament <span className="text-morocco-gold">Fixtures</span></h2>
+                            <p className="text-zinc-500 text-[8px] md:text-[10px] uppercase tracking-[0.4em] font-bold">Official Schedule</p>
                         </div>
                         <div className="flex bg-white/5 p-1 rounded-2xl border border-white/10">
                             <button
@@ -1173,8 +1236,8 @@ const FullFixturesModal = ({ recent, upcoming, onClose, onBuyTicket }) => {
                     </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-10 pt-6 scrollbar-hide">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="flex-1 overflow-y-auto p-6 md:p-10 pt-6 scrollbar-hide">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {(filter === 'upcoming' ? upcoming : recent).map(match => (
                             <MatchCard
                                 key={match.id}
@@ -1319,34 +1382,34 @@ const MatchCard = ({ match, upcoming = false, onBuyTicket }) => {
                 </span>
             </div>
 
-            <div className="flex justify-between items-center gap-4">
+            <div className="flex justify-between items-center gap-2 md:gap-4">
                 <div className="flex flex-col items-center flex-1">
-                    <div className="w-16 h-16 rounded-full bg-[#3d0808] border-2 border-morocco-red/20 flex items-center justify-center mb-2 group-hover:border-morocco-gold/40 transition-colors">
-                        <img src={match.homeFlag} alt={match.home} className="w-10 h-10 object-contain" />
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#3d0808] border border-morocco-red/20 flex items-center justify-center mb-2 group-hover:border-morocco-gold/40 transition-colors">
+                        <img src={match.homeFlag} alt={match.home} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                     </div>
-                    <span className="font-bold text-sm tracking-wide text-center">{match.home}</span>
+                    <span className="font-bold text-[11px] md:text-sm tracking-wide text-center">{match.home}</span>
                 </div>
 
                 <div className="flex flex-col items-center">
                     {upcoming ? (
                         <div className="flex flex-col items-center">
-                            <span className="text-morocco-gold font-black text-xl leading-none">{match.time}</span>
-                            <span className="text-[10px] text-zinc-500 uppercase mt-1">{match.date}</span>
+                            <span className="text-morocco-gold font-black text-lg md:text-xl leading-none">{match.time}</span>
+                            <span className="text-[8px] md:text-[10px] text-zinc-500 uppercase mt-1">{match.date}</span>
                         </div>
                     ) : (
-                        <div className="flex items-center gap-3">
-                            <span className="text-3xl font-black text-white group-hover:text-morocco-gold transition-colors">{match.homeScore}</span>
-                            <span className="text-morocco-red font-bold text-xl">:</span>
-                            <span className="text-3xl font-black text-white group-hover:text-morocco-gold transition-colors">{match.awayScore}</span>
+                        <div className="flex items-center gap-2 md:gap-3">
+                            <span className="text-2xl md:text-3xl font-black text-white group-hover:text-morocco-gold transition-colors">{match.homeScore}</span>
+                            <span className="text-morocco-red font-bold text-lg md:text-xl">:</span>
+                            <span className="text-2xl md:text-3xl font-black text-white group-hover:text-morocco-gold transition-colors">{match.awayScore}</span>
                         </div>
                     )}
                 </div>
 
                 <div className="flex flex-col items-center flex-1">
-                    <div className="w-16 h-16 rounded-full bg-[#3d0808] border-2 border-morocco-red/20 flex items-center justify-center mb-2 group-hover:border-morocco-gold/40 transition-colors">
-                        <img src={match.awayFlag} alt={match.away} className="w-10 h-10 object-contain" />
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#3d0808] border border-morocco-red/20 flex items-center justify-center mb-2 group-hover:border-morocco-gold/40 transition-colors">
+                        <img src={match.awayFlag} alt={match.away} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                     </div>
-                    <span className="font-bold text-sm tracking-wide text-center">{match.away}</span>
+                    <span className="font-bold text-[11px] md:text-sm tracking-wide text-center">{match.away}</span>
                 </div>
             </div>
 
@@ -1368,41 +1431,72 @@ const MatchCard = ({ match, upcoming = false, onBuyTicket }) => {
     )
 }
 
+const MobileNav = ({ onFixturesClick, onMarketClick, onFanZoneClick, onJerseyAiClick, onOpenHistory, ticketCount }) => (
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-[100] bg-[#0f0202]/90 backdrop-blur-lg border-t border-morocco-gold/10 px-4 py-3 pb-8">
+        <div className="flex justify-between items-center max-w-lg mx-auto">
+            <button onClick={onFixturesClick} className="flex flex-col items-center gap-1 text-zinc-400">
+                <Calendar size={20} />
+                <span className="text-[8px] font-bold uppercase tracking-widest">Fixtures</span>
+            </button>
+            <button onClick={onMarketClick} className="flex flex-col items-center gap-1 text-morocco-gold">
+                <ShoppingCart size={20} />
+                <span className="text-[8px] font-bold uppercase tracking-widest">Market</span>
+            </button>
+            <button onClick={onFanZoneClick} className="flex flex-col items-center gap-1 text-morocco-red">
+                <Camera size={20} />
+                <span className="text-[8px] font-bold uppercase tracking-widest">Fan Zone</span>
+            </button>
+            <button onClick={onJerseyAiClick} className="flex flex-col items-center gap-1 text-white">
+                <Shirt size={20} />
+                <span className="text-[8px] font-bold uppercase tracking-widest">AI Kit</span>
+            </button>
+            <button onClick={onOpenHistory} className="flex flex-col items-center gap-1 text-zinc-400 relative">
+                <Ticket size={20} />
+                {ticketCount > 0 && (
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-morocco-red text-[7px] flex items-center justify-center rounded-full text-white font-black">
+                        {ticketCount}
+                    </span>
+                )}
+                <span className="text-[8px] font-bold uppercase tracking-widest">Tickets</span>
+            </button>
+        </div>
+    </div>
+)
+
 const Header = ({ onOpenHistory, ticketCount, currentUser, onAuthClick, onProfileClick, onFixturesClick, onMarketClick, onFanZoneClick, onJerseyAiClick }) => (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0f0202]/80 backdrop-blur-md border-b border-morocco-gold/10 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-morocco-red to-[#800000] rounded-lg flex items-center justify-center shadow-glow-red">
-                    <Trophy className="text-morocco-gold" size={24} />
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0f0202]/80 backdrop-blur-md border-b border-morocco-gold/10 px-4 md:px-6 py-3 md:py-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-zinc-400">
+            <div className="flex items-center gap-2 md:gap-3">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-morocco-red to-[#800000] rounded-lg flex items-center justify-center shadow-glow-red">
+                    <Trophy className="text-morocco-gold" size={18} />
                 </div>
                 <div>
-                    <h1 className="text-xl font-black tracking-tighter flex items-center gap-2">
-                        CAN <span className="text-morocco-gold">MOROCCO</span> 2025
+                    <h1 className="text-sm md:text-xl font-black tracking-tighter flex items-center gap-1 md:gap-2">
+                        CAN <span className="text-morocco-gold font-bold">2025</span>
                     </h1>
-                    <p className="text-[10px] text-morocco-gold/60 font-bold uppercase tracking-[0.3em]">Royal Dashboard</p>
                 </div>
             </div>
 
-            <nav className="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-zinc-400">
+            <nav className="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest">
                 <a href="#" className="text-morocco-gold border-b border-morocco-gold pb-1 transition-all">Home</a>
                 <button onClick={onFixturesClick} className="hover:text-white transition-colors">Fixtures</button>
                 <button
                     onClick={onMarketClick}
-                    className="flex items-center gap-2 text-morocco-gold bg-morocco-gold/5 px-3 py-1.5 rounded-full border border-morocco-gold/20 hover:bg-morocco-gold/10 transition-all font-black"
+                    className="flex items-center gap-2 text-morocco-gold bg-morocco-gold/5 px-4 py-2 rounded-full border border-morocco-gold/20 hover:bg-morocco-gold/10 transition-all font-black"
                 >
                     <ShoppingCart size={14} />
                     P2P Market
                 </button>
                 <button
-                    onClick={onFanZoneClick} // We need to add this prop to Header
-                    className="flex items-center gap-2 text-morocco-red bg-morocco-red/5 px-3 py-1.5 rounded-full border border-morocco-red/20 hover:bg-morocco-red/10 transition-all font-black"
+                    onClick={onFanZoneClick}
+                    className="flex items-center gap-2 text-morocco-red bg-morocco-red/5 px-4 py-2 rounded-full border border-morocco-red/20 hover:bg-morocco-red/10 transition-all font-black"
                 >
                     <Camera size={14} />
                     Fan Zone
                 </button>
                 <button
                     onClick={onJerseyAiClick}
-                    className="flex items-center gap-2 text-white bg-white/5 px-3 py-1.5 rounded-full border border-white/10 hover:bg-white/10 transition-all font-black"
+                    className="flex items-center gap-2 text-white bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-all font-black"
                 >
                     <Shirt size={14} />
                     Jersey AI
@@ -1414,7 +1508,7 @@ const Header = ({ onOpenHistory, ticketCount, currentUser, onAuthClick, onProfil
                     >
                         My Tickets
                         {ticketCount > 0 && (
-                            <span className="absolute -top-1 -right-4 w-4 h-4 bg-morocco-red text-[8px] flex items-center justify-center rounded-full text-white font-black animate-pulse">
+                            <span className="absolute -top-2 -right-4 w-4 h-4 bg-morocco-red text-[8px] flex items-center justify-center rounded-full text-white font-black animate-pulse">
                                 {ticketCount}
                             </span>
                         )}
@@ -1422,23 +1516,23 @@ const Header = ({ onOpenHistory, ticketCount, currentUser, onAuthClick, onProfil
                 )}
             </nav>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
                 {currentUser ? (
                     <button
                         onClick={onProfileClick}
-                        className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all"
+                        className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all"
                     >
-                        <div className="w-6 h-6 bg-morocco-gold rounded-full flex items-center justify-center text-black text-[10px]">
-                            {currentUser.fullName[0].toUpperCase()}
+                        <div className="w-5 h-5 md:w-6 md:h-6 bg-morocco-gold rounded-full flex items-center justify-center text-black">
+                            {currentUser.fullName?.[0]?.toUpperCase() || 'U'}
                         </div>
-                        {currentUser.fullName.split(' ')[0]}
+                        <span className="hidden sm:inline">{currentUser.fullName?.split(' ')[0] || 'User'}</span>
                     </button>
                 ) : (
                     <button
                         onClick={onAuthClick}
-                        className="bg-morocco-gold text-black px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-glow-gold hover:bg-yellow-500 transition-all"
+                        className="bg-morocco-gold text-black px-4 md:px-6 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest shadow-glow-gold hover:bg-yellow-500 transition-all"
                     >
-                        Kingdom Access
+                        Access
                     </button>
                 )}
             </div>
@@ -1576,35 +1670,79 @@ const App = () => {
     }
 
     const handleSellConfirm = (price, type) => {
-        if (!sellingTicket) return;
+        try {
+            if (!sellingTicket) {
+                console.warn('No ticket selected for sale');
+                return;
+            }
 
-        const originalPrice = sellingTicket.price || 250;
-        const normalMax = originalPrice * 1.05;
-        const vipMax = originalPrice * 1.10;
+            if (!currentUser) {
+                showNotification('⚠️ Authentication Required\n\nPlease sign in to list tickets.');
+                return;
+            }
 
-        let finalType = type;
-        if (price > vipMax) {
-            showNotification(`⚖️ Royal Blockade!\n\nEven VIP tiers cannot exceed 10% markup (${Math.round(vipMax)} MAD).\n\nTransaction Denied.`);
-            return;
-        } else if (price > normalMax) {
-            finalType = 'VIP';
+            const originalPrice = sellingTicket.price || 250;
+            const normalMax = originalPrice * 1.05;
+            const vipMax = originalPrice * 1.10;
+
+            let finalType = type;
+            if (price > vipMax) {
+                showNotification(`⚖️ Royal Blockade!\n\nEven VIP tiers cannot exceed 10% markup (${Math.round(vipMax)} MAD).\n\nTransaction Denied.`);
+                return;
+            } else if (price > normalMax) {
+                finalType = 'VIP';
+            }
+
+            // Robust Match ID resolution & Data Hydration
+            let matchId = sellingTicket.id || sellingTicket.matchId;
+            let matchData = {};
+
+            // Hydrate data from global matches if possible
+            const allMatches = [...recentMatches, ...upcomingMatches];
+            let foundMatch = null;
+
+            if (matchId) {
+                foundMatch = allMatches.find(m => m.id === matchId);
+            } else if (sellingTicket.home && sellingTicket.away) {
+                foundMatch = allMatches.find(m => m.home === sellingTicket.home && m.away === sellingTicket.away);
+                if (foundMatch) matchId = foundMatch.id;
+            }
+
+            // Merge found match data to ensure completeness (prevents "blank" listings)
+            if (foundMatch) {
+                matchData = { ...foundMatch };
+            }
+
+            const newListing = {
+                id: 'MARKET-' + Date.now(),
+                matchId: matchId,
+                sellerId: currentUser.phone,
+                price,
+                type: finalType,
+                // crucial: bake the match data INTO the ticket data so it survives independent of lookups
+                ticketData: {
+                    ...matchData,
+                    ...sellingTicket,
+                    matchId: matchId, // Ensure matchId is present in ticketData
+                    home: sellingTicket.home || matchData.home || 'Unknown',
+                    away: sellingTicket.away || matchData.away || 'Unknown',
+                    homeFlag: sellingTicket.homeFlag || matchData.homeFlag || '',
+                    awayFlag: sellingTicket.awayFlag || matchData.awayFlag || '',
+                    round: sellingTicket.round || matchData.round || 'Match',
+                    isoDate: matchData.isoDate || sellingTicket.isoDate || new Date().toISOString()
+                }
+            };
+
+            setMarketTickets([...marketTickets, newListing]);
+            setPurchasedTickets(purchasedTickets.filter(t => t.ticketId !== sellingTicket.ticketId));
+            setSellingTicket(null);
+            setHistoryOpen(false);
+
+            showNotification(`🏆 Royal Success! \n\nYour pass for ${sellingTicket.home || 'Unknown'} vs ${sellingTicket.away || 'Unknown'} is now in the Blind Market.\n\n🏷️ Tier: ${finalType} PASS\n💰 Price: ${price} MAD\n🛡️ Status: PROTECTED`);
+        } catch (error) {
+            console.error('❌ Sell Confirm Error:', error);
+            showNotification(`⚠️ Listing Failed\n\nAn error occurred while listing your ticket. Please try again.\n\nError: ${error.message}`);
         }
-
-        const newListing = {
-            id: 'MARKET-' + Date.now(),
-            matchId: sellingTicket.id,
-            sellerId: currentUser.phone,
-            price,
-            type: finalType,
-            ticketData: sellingTicket
-        };
-
-        setMarketTickets([...marketTickets, newListing]);
-        setPurchasedTickets(purchasedTickets.filter(t => t.ticketId !== sellingTicket.ticketId));
-        setSellingTicket(null);
-        setHistoryOpen(false);
-
-        showNotification(`🏆 Royal Success! \n\nYour pass for ${sellingTicket.home} vs ${sellingTicket.away} is now in the Blind Market.\n\n🏷️ Tier: ${finalType} PASS\n💰 Price: ${price} MAD\n🛡️ Status: PROTECTED`);
     }
 
     const handleMarketBuy = (listing) => {
@@ -1614,8 +1752,12 @@ const App = () => {
         }
 
         // Transfer listing to current user
+        // Transfer listing to current user
+        // Ensure we keep ALL the data that made the listing valid
         const newTicket = {
-            ...listing.ticketData,
+            ...listing.ticketData, // Inherit all hydrated data
+            id: listing.matchId, // Persist Match ID for future lookups
+            matchId: listing.matchId, // redundancy for safety
             ticketId: 'TRF-' + listing.id.split('-')[1],
             userId: currentUser.phone,
             purchaseDate: new Date().toLocaleDateString()
@@ -1638,7 +1780,7 @@ const App = () => {
     }
 
     return (
-        <div className="min-h-screen pt-28 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-x-hidden relative">
+        <div className="min-h-screen pt-24 md:pt-32 pb-32 px-4 md:px-8 max-w-7xl mx-auto overflow-x-hidden relative">
             <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-morocco-red/10 rounded-full blur-[120px] -z-10" />
             <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-morocco-gold/5 rounded-full blur-[100px] -z-10" />
 
@@ -1659,18 +1801,18 @@ const App = () => {
                     onJerseyAiClick={() => setJerseyAiOpen(true)}
                 />
 
-                <section className="mb-16 relative">
+                <section className="mb-10 md:mb-16 relative">
                     {nextMatch && (
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-morocco-gold/10 border border-morocco-gold/20 rounded-2xl p-4 mb-8 inline-flex items-center gap-6"
+                            className="bg-morocco-gold/10 border border-morocco-gold/20 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row sm:inline-flex items-center gap-4 sm:gap-6"
                         >
                             <div className="flex items-center gap-3">
                                 <span className="w-2 h-2 bg-morocco-gold rounded-full animate-ping" />
-                                <p className="text-[10px] font-black uppercase text-morocco-gold tracking-widest">Next Grand Event Arrival</p>
+                                <p className="text-[10px] font-black uppercase text-morocco-gold tracking-widest leading-none">Next Grand Arrival</p>
                             </div>
-                            <div className="h-4 w-px bg-morocco-gold/20" />
+                            <div className="hidden sm:block h-4 w-px bg-morocco-gold/20" />
                             <CountdownTimer targetDate={nextMatch.isoDate} className="text-sm font-black text-white tabular-nums tracking-wider" />
                         </motion.div>
                     )}
@@ -1681,17 +1823,17 @@ const App = () => {
                     >
                         <span className="text-morocco-gold italic gold-text-glow">Ml3ouba</span>
                     </motion.h2>
-                    <p className="text-zinc-400 max-w-xl text-sm md:text-base mb-8">
+                    <p className="text-zinc-400 max-w-xl text-xs md:text-base mb-8 leading-relaxed">
                         Experience the 2025 Africa Cup of Nations hosted in the Kingdom of Morocco.
                         Secure your digital ticket today with our royal facial recognition system.
                     </p>
-                    <div className="flex gap-4">
-                        <button className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-bold text-sm hover:bg-morocco-gold transition-colors">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <button className="flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-bold text-sm hover:bg-morocco-gold transition-colors w-full sm:w-auto">
                             View Schedule <ChevronRight size={18} />
                         </button>
                         <button
                             onClick={() => currentUser ? setProfileOpen(true) : setAuthOpen(true)}
-                            className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-xl font-bold text-sm hover:bg-white/10 transition-colors"
+                            className="flex items-center justify-center gap-2 border border-white/20 px-6 py-3 rounded-xl font-bold text-sm hover:bg-white/10 transition-colors w-full sm:w-auto"
                         >
                             {currentUser ? 'My Profile' : 'Sign In'} <History size={18} />
                         </button>
@@ -1862,7 +2004,6 @@ const App = () => {
                 onSelectTicket={(t) => setViewTicket(t)}
                 onSellClick={(t) => setSellingTicket(t)}
             />
-
             <AnimatePresence>
                 {notifications.map((n, i) => (
                     <RoyalNotification
@@ -1873,7 +2014,16 @@ const App = () => {
                     />
                 ))}
             </AnimatePresence>
-        </div >
+
+            <MobileNav
+                onFixturesClick={() => setFixturesOpen(true)}
+                onMarketClick={() => setMarketOpen(true)}
+                onFanZoneClick={() => setFanZoneOpen(true)}
+                onJerseyAiClick={() => setJerseyAiOpen(true)}
+                onOpenHistory={() => setHistoryOpen(true)}
+                ticketCount={userTickets.length}
+            />
+        </div>
     )
 }
 
